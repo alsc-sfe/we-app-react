@@ -40,6 +40,23 @@ export function WeAppProvider(props: WeAppProviderProps) {
   );
 }
 
-export {
-  Consumer as WeAppConsumer,
-};
+export interface WeAppConsumerProps {
+  children: (context: WeAppContextProps) => any;
+  [prop: string]: any;
+}
+
+export function WeAppConsumer(props: WeAppConsumerProps) {
+  const { children } = props;
+  return (
+    <Consumer>
+      {(context) => {
+        if (!context) {
+          console.warn('请在WeAppProvider中使用');
+          return null;
+        }
+
+        return children(context);
+      }}
+    </Consumer>
+  );
+}
