@@ -1,15 +1,15 @@
 ---
 order: 1
-title: demo1
+title: 微应用路由
 ---
 
-PC模板
+微应用路由
 
 ````jsx
 import { WeAppProvider, 
   Link, useNavigate,
   AppLink, AppNavLink,
-  RouterType } from "@saasfe/we-app-react";
+  RouterType } from "@alife/we-app-react";
 
 function Demo() {
   const navigate = useNavigate();
