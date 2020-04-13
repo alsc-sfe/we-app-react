@@ -1,4 +1,4 @@
-import React, { createContext, cloneElement, isValidElement } from 'react';
+import React, { createContext, cloneElement, isValidElement, useContext } from 'react';
 import { RenderCustomProps } from '@saasfe/we-app/es/weapp/base';
 import { AppLocation } from '@saasfe/we-app/es/routing/locate';
 import { useRoute, UseRouteParams } from './router/route';
@@ -15,7 +15,11 @@ export interface WeAppProviderProps extends WeAppContextProps, UseRouteParams {
 
 const WeAppContext = createContext<WeAppContextProps>(null);
 
-const { Provider, Consumer } = WeAppContext;
+const { Provider } = WeAppContext;
+
+export {
+  WeAppContext,
+};
 
 export function WeAppProvider(props: WeAppProviderProps) {
   const { children, matchProps, ...rest } = props;
@@ -59,16 +63,11 @@ export interface WeAppConsumerProps {
 
 export function WeAppConsumer(props: WeAppConsumerProps) {
   const { children } = props;
-  return (
-    <Consumer>
-      {(context) => {
-        if (!context) {
-          console.warn('请在WeAppProvider中使用');
-          return null;
-        }
+  const context = useContext(WeAppContext);
 
-        return children(context);
-      }}
-    </Consumer>
-  );
+  if (!context) {
+    console.error('请在WeAppProvider中使用');
+    return null;
+  }
+  return children(context);
 }

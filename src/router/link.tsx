@@ -1,13 +1,14 @@
 import React from 'react';
 import { getGotoHref, GetGotoHrefParams } from '@saasfe/we-app/es/routing/locate';
 import { getRouteSwitchConfig, Route } from '@saasfe/we-app/es/routing/route';
-import { WeAppConsumer } from '../contex';
+import { WeAppConsumer } from '../context';
 
-export interface LinkElementProps extends GetGotoHrefParams {
+interface LinkElementProps extends GetGotoHrefParams {
   children: any;
+  className?: string;
 }
 
-export function LinkElement({ to, basename, routerType, children, ...rest }: LinkElementProps) {
+function LinkElement({ to, basename, routerType, children, className }: LinkElementProps) {
   const gotoHref = getGotoHref({
     to,
     basename,
@@ -15,20 +16,33 @@ export function LinkElement({ to, basename, routerType, children, ...rest }: Lin
   });
   const config = getRouteSwitchConfig(gotoHref, routerType);
 
-  return <a {...rest} {...config} href={gotoHref}>{children}</a>;
+  return <a className={className} {...config} href={gotoHref}>{children}</a>;
 }
 
 export interface LinkProps {
   to: Route;
   children: any;
+  className?: string;
 }
 
-export default function Link(props: LinkProps) {
+export function Link(props: LinkProps) {
   return (
     <WeAppConsumer>
       {
         (routerConfig) => {
           return <LinkElement {...props} {...routerConfig} />;
+        }
+      }
+    </WeAppConsumer>
+  );
+}
+
+export function AppLink(props: LinkProps) {
+  return (
+    <WeAppConsumer>
+      {
+        (routerConfig) => {
+          return <LinkElement {...props} {...routerConfig} basename={routerConfig.appBasename} />;
         }
       }
     </WeAppConsumer>

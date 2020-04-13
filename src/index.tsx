@@ -1,13 +1,12 @@
-import Link from './router/link';
-import AppLink from './router/app-link';
-import AppNavLink from './router/app-nav-link';
 import { RouterType } from '@saasfe/we-app/es/routing/enum';
+import AppNavLink from './router/app-nav-link';
 
-export * from './contex';
+export * from './context';
+export * from './router/link';
+export * from './router/redirect';
 
 export {
-  Link,
-  AppLink,
   AppNavLink,
+
   RouterType,
 };
