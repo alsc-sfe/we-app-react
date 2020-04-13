@@ -25,6 +25,10 @@ module.exports = {
     library: "WeAppReact",
     // 自定义UMD构建配置
     config: (compileConfig) => {
+      // compileConfig.output = {
+      //   ...compileConfig.output,
+      //   libraryExport: '',
+      // };
       return compileConfig;
     },
   },
