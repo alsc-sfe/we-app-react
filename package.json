@@ -1,6 +1,6 @@
 {
-  "name": "@alife/we-app-react",
-  "version": "1.0.0",
+  "name": "@saasfe/we-app-react",
+  "version": "1.0.0-beta.1",
   "description": "We App React Context, React Router",
   "homepage": "http://gitlab.alibaba-inc.com/saas-biz-components/we-app-react",
   "repository": {

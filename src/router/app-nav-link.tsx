@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { cloneElement, isValidElement } from 'react';
 import { useRoute } from './route';
 import { getGotoHref } from '@saasfe/we-app/es/routing/locate';
 import { getRouteSwitchConfig, Route } from '@saasfe/we-app/es/routing/route';
@@ -8,10 +8,6 @@ function NavLinkElement(props: WeAppProviderProps) {
   const { to, route, exact, strict,
     routeMatch, onRouteMatch, matchProps,
     children, locate, routerType, basename, ...rest } = props;
-
-  if (!React.isValidElement(children)) {
-    throw new Error('Please pass React.Element to NavLink');
-  }
 
   const gotoHref = getGotoHref({
     to,
@@ -27,7 +23,7 @@ function NavLinkElement(props: WeAppProviderProps) {
     ...matchProps,
     match: matchLocate,
   } : rest;
-  const component = React.cloneElement(children, comProps);
+  const component = isValidElement(children) ? cloneElement(children, comProps) : children;
 
   return <a {...rest} {...config} href={gotoHref}>{component}</a>;
 }
