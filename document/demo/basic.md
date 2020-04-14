@@ -9,7 +9,7 @@ title: 微应用路由
 import { WeAppProvider, 
   Link, useNavigate, appNavigate,
   AppLink, AppNavLink, navigate,
-  RouterType } from "@alife/we-app-react";
+  RouterType } from "@saasfe/we-app-react";
 
 function HelloAppNavLink({ style }) {
   return (
