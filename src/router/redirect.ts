@@ -40,14 +40,11 @@ export function AppRedirect(props: RedirectProps) {
   return null;
 }
 
-export interface AppNavigateProps {
-  to: Route;
-  [prop: string]: any;
-}
+export type AppNavigateProps = string | { to: Route };
 
-export function appNavigate({ to }: AppNavigateProps) {
+export function appNavigate(props: AppNavigateProps) {
   const gotoHref = getGotoHref({
-    to,
+    to: typeof props === 'string' ? props : props.to,
     // 当前方法强制命中站点根路径，所以重写basename为appBasename
     basename: SITE_CONFIG.appBasename,
     appBasename: SITE_CONFIG.appBasename,

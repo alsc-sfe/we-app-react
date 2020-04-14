@@ -25,7 +25,7 @@ function Demo() {
     <>
       <div><button onClick={navigateHook.bind(this, '/navigate-hook')}>weapp navigate by hook</button></div>
       <div><button onClick={appNavigateHook.bind(this, '/app-navigate-hook')}>app navigate by hook</button></div>
-      <div><button onClick={appNavigate.bind(this, { to: '/app-navigate' })}>app navigate by appNavigate</button></div>
+      <div><button onClick={appNavigate.bind(this, '/app-navigate')}>app navigate by appNavigate</button></div>
       <div><button onClick={navigate.bind(this, '#/full')}>自定义路径跳转，需包含routerType</button></div>
       <div><Link to="/link">Hello weapp Link</Link></div>
       <div><Link to="~/link">Hello ~Link 等效于 AppLink /link</Link></div>
