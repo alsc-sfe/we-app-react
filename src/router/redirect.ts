@@ -44,7 +44,7 @@ export type AppNavigateProps = string | { to: Route };
 
 export function appNavigate(props: AppNavigateProps) {
   const gotoHref = getGotoHref({
-    to: typeof props === 'string' ? props : props.to,
+    to: typeof props === 'string' ? props : props.to || props,
     // 当前方法强制命中站点根路径，所以重写basename为appBasename
     basename: SITE_CONFIG.appBasename,
     appBasename: SITE_CONFIG.appBasename,
