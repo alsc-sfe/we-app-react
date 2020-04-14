@@ -1,13 +1,13 @@
 {
-  "name": "@alife/we-app-react",
+  "name": "@saasfe/we-app-react",
   "version": "1.0.7",
   "description": "We App React Context, React Router",
-  "homepage": "http://gitlab.alibaba-inc.com/saas-biz-components/we-app-react",
+  "homepage": "https://github.com/alsc-sfe/we-app-react",
   "repository": {
     "type": "git",
-    "url": "http://gitlab.alibaba-inc.com/saas-biz-components/we-app-react"
+    "url": "https://github.com/alsc-sfe/we-app-reactt"
   },
-  "author": "少楚",
+  "author": "zetay",
   "files": [
     "document",
     "src",
