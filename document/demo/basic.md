@@ -36,10 +36,7 @@ function Demo() {
 }
 
 ReactDOM.render((
-  <WeAppProvider route={[
-    '/navigate-hook', '~/app-navigate-hook', '~/app-navigate',
-    '/link', '~/link',
-    '~/app-link', '~/app-nav-link']} 
+  <WeAppProvider route
     routerType={RouterType.hash}
     basename="/crm/weapp"
     appBasename="/crm">

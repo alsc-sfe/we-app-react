@@ -46,7 +46,14 @@ export default function AppNavLink(props: NavLinkProps) {
     <WeAppConsumer>
       {
         (routerConfig) => {
-          return <NavLinkElement {...props} {...routerConfig} basename={routerConfig.appBasename} />;
+          return (
+            <NavLinkElement
+              {...routerConfig}
+              {...props}
+              route={props.route || props.to}
+              basename={routerConfig.appBasename}
+            />
+          );
         }
       }
     </WeAppConsumer>

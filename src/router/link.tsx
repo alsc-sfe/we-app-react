@@ -43,7 +43,7 @@ export function AppLink(props: LinkProps) {
     <WeAppConsumer>
       {
         (routerConfig) => {
-          return <LinkElement {...props} {...routerConfig} basename={routerConfig.appBasename} />;
+          return <LinkElement {...routerConfig} {...props} basename={routerConfig.appBasename} />;
         }
       }
     </WeAppConsumer>
