@@ -19,6 +19,7 @@ export function useRoute({
   onRouteMatch,
   locate = window.location,
   basename = '',
+  appBasename = '',
   routerType = RouterType.browser,
 }: UseRouteParams): [boolean, AppLocation] {
   const [currentRoute, changeCurrentRoute] = useState(window.location.href);
@@ -32,6 +33,7 @@ export function useRoute({
     routeIgnore,
     locate,
     basename,
+    appBasename,
     routerType,
   }), [currentRoute]); // eslint-disable-line
 
@@ -39,6 +41,7 @@ export function useRoute({
     route: routeRule,
     locate,
     basename,
+    appBasename,
     routerType,
   });
 

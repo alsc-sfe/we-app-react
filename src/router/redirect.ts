@@ -1,17 +1,7 @@
 import { useContext, useCallback } from 'react';
 import { getGotoHref } from '@saasfe/we-app/lib/routing/locate';
-import { Route } from '@saasfe/we-app/lib/routing/route';
+import { Route, navigate } from '@saasfe/we-app/lib/routing/route';
 import { WeAppContext, SITE_CONFIG } from '../context';
-
-export function navigate(to: string) {
-  if (window.history.pushState) {
-    window.history.pushState(null, null, to);
-  } else if (to?.indexOf('#') > -1) {
-    window.location.hash = to;
-  } else {
-    window.location.href = to;
-  }
-}
 
 export function useNavigate(isApp: boolean = false) {
   const context = useContext(WeAppContext);
@@ -25,6 +15,7 @@ export function useNavigate(isApp: boolean = false) {
     const gotoHref = getGotoHref({
       ...context,
       basename: isApp ? context.appBasename : context.basename,
+      appBasename: context.appBasename,
       to,
     });
     navigate(gotoHref);
@@ -57,7 +48,9 @@ export interface AppNavigateProps {
 export function appNavigate({ to }: AppNavigateProps) {
   const gotoHref = getGotoHref({
     to,
+    // 当前方法强制命中站点根路径，所以重写basename为appBasename
     basename: SITE_CONFIG.appBasename,
+    appBasename: SITE_CONFIG.appBasename,
     routerType: SITE_CONFIG.routerType,
   });
 

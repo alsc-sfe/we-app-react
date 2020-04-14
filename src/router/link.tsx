@@ -8,10 +8,11 @@ interface LinkElementProps extends GetGotoHrefParams {
   className?: string;
 }
 
-function LinkElement({ to, basename, routerType, children, className }: LinkElementProps) {
+function LinkElement({ to, basename, appBasename, routerType, children, className }: LinkElementProps) {
   const gotoHref = getGotoHref({
     to,
     basename,
+    appBasename,
     routerType,
   });
   const config = getRouteSwitchConfig(gotoHref, routerType);
