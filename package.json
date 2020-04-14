@@ -1,11 +1,11 @@
 {
   "name": "@saasfe/we-app-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "We App React Context, React Router",
   "homepage": "https://github.com/alsc-sfe/we-app-react",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alsc-sfe/we-app-reactt"
+    "url": "https://github.com/alsc-sfe/we-app-react"
   },
   "author": "zetay",
   "files": [
