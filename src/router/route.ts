@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { parseLocate, Locate, AppLocation } from '@saasfe/we-app/es/routing/locate';
-import { DEFAULTRouteMatch, RouteMatch, Route as TRoute, RouteMatchParams } from '@saasfe/we-app/es/routing/route';
-import { RouterType } from '@saasfe/we-app/es/routing/enum';
-import { isFunction } from '@saasfe/we-app/es/routing/util';
+import { parseLocate, Locate, AppLocation } from '@saasfe/we-app/lib/routing/locate';
+import { DEFAULTRouteMatch, RouteMatch, Route as TRoute, RouteMatchParams } from '@saasfe/we-app/lib/routing/route';
+import { RouterType } from '@saasfe/we-app/lib/routing/enum';
+import { isFunction } from '@saasfe/we-app/lib/routing/util';
 
 export interface UseRouteParams extends RouteMatchParams {
   to?: TRoute;

@@ -1,6 +1,6 @@
 import React, { createContext, cloneElement, isValidElement, useContext } from 'react';
-import { RenderCustomProps } from '@saasfe/we-app/es/weapp/base';
-import { AppLocation } from '@saasfe/we-app/es/routing/locate';
+import { RenderCustomProps } from '@saasfe/we-app/lib/weapp/base';
+import { AppLocation } from '@saasfe/we-app/lib/routing/locate';
 import { useRoute, UseRouteParams } from './router/route';
 
 export interface WeAppContextProps extends RenderCustomProps {

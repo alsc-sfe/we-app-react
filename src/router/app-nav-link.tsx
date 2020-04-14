@@ -1,7 +1,7 @@
 import React, { cloneElement, isValidElement } from 'react';
 import { useRoute } from './route';
-import { getGotoHref } from '@saasfe/we-app/es/routing/locate';
-import { getRouteSwitchConfig, Route } from '@saasfe/we-app/es/routing/route';
+import { getGotoHref } from '@saasfe/we-app/lib/routing/locate';
+import { getRouteSwitchConfig, Route } from '@saasfe/we-app/lib/routing/route';
 import { WeAppConsumer, WeAppProviderProps } from '../context';
 
 interface NavLinkElementProps extends WeAppProviderProps {
