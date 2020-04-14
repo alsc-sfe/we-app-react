@@ -35,10 +35,7 @@ export function WeAppProvider(props: WeAppProviderProps) {
   SITE_CONFIG.routerType = rest.routerType;
 
   // 匹配路由
-  const [matched, matchLocate] = useRoute(rest);
-  if (!matched) {
-    return null;
-  }
+  const [, matchLocate] = useRoute(rest);
 
   const context = {
     ...rest,
