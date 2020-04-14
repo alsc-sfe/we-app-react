@@ -1,6 +1,6 @@
 {
   "name": "@saasfe/we-app-react",
-  "version": "1.0.7",
+  "version": "1.0.0",
   "description": "We App React Context, React Router",
   "homepage": "https://github.com/alsc-sfe/we-app-react",
   "repository": {
@@ -74,6 +74,6 @@
     "lint"
   ],
   "publishConfig": {
-    "registry": "http://registry.npm.alibaba-inc.com"
+    "registry": "https://registry.npmjs.org/"
   }
 }
