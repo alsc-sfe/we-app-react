@@ -2,6 +2,13 @@ import React, { createContext, cloneElement, isValidElement, useContext } from '
 import { RenderCustomProps } from '@saasfe/we-app/lib/weapp/base';
 import { AppLocation } from '@saasfe/we-app/lib/routing/locate';
 import { useRoute, UseRouteParams } from './router/route';
+import { RouterType } from '.';
+
+// 缓存全局配置，如appBasename、routerType等
+export const SITE_CONFIG = {
+  appBasename: '',
+  routerType: RouterType.browser,
+};
 
 export interface WeAppContextProps extends RenderCustomProps {
   match?: AppLocation;
@@ -23,6 +30,9 @@ export {
 
 export function WeAppProvider(props: WeAppProviderProps) {
   const { children, matchProps, ...rest } = props;
+
+  SITE_CONFIG.appBasename = rest.appBasename;
+  SITE_CONFIG.routerType = rest.routerType;
 
   // 匹配路由
   const [matched, matchLocate] = useRoute(rest);

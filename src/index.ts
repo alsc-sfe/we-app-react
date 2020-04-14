@@ -2,7 +2,7 @@ import { RouterType } from '@saasfe/we-app/lib/routing/enum';
 import AppNavLink from './router/app-nav-link';
 import { WeAppProvider, WeAppConsumer, WeAppContext } from './context';
 import { Link, AppLink } from './router/link';
-import { Redirect, AppRedirect, useNavigate, navigate } from './router/redirect';
+import { Redirect, AppRedirect, useNavigate, navigate, appNavigate } from './router/redirect';
 
 export default {
   Link,
@@ -12,6 +12,7 @@ export default {
   AppRedirect,
   useNavigate,
   navigate,
+  appNavigate,
 
   WeAppContext,
   WeAppProvider,
@@ -28,6 +29,7 @@ export {
   AppRedirect,
   useNavigate,
   navigate,
+  appNavigate,
 
   WeAppContext,
   WeAppProvider,

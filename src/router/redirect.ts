@@ -1,7 +1,7 @@
 import { useContext, useCallback } from 'react';
 import { getGotoHref } from '@saasfe/we-app/lib/routing/locate';
 import { Route } from '@saasfe/we-app/lib/routing/route';
-import { WeAppContext } from '../context';
+import { WeAppContext, SITE_CONFIG } from '../context';
 
 export function navigate(to: string) {
   if (window.history.pushState) {
@@ -47,4 +47,19 @@ export function AppRedirect(props: RedirectProps) {
   const navigateTo = useNavigate(true);
   navigateTo(props.to);
   return null;
+}
+
+export interface AppNavigateProps {
+  to: Route;
+  [prop: string]: any;
+}
+
+export function appNavigate({ to }: AppNavigateProps) {
+  const gotoHref = getGotoHref({
+    to,
+    basename: SITE_CONFIG.appBasename,
+    routerType: SITE_CONFIG.routerType,
+  });
+
+  navigate(gotoHref);
 }

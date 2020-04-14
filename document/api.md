@@ -53,7 +53,17 @@ cols: 2
 | children        | 子组件 | React.Element，props中注入match，即当前匹配的路径对象，含pathname、params、query等   | 无 |
 | className        | 样式 | String   | 无 |
 
+#### appNavigate
+
+子应用间跳转方法。
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+| to        | 链接，建议使用微应用内路径，如/detail或者{path: '/detail', query: 'id=1&new=1'}或者{path: '/detail', query: {id: 1, new: 1} | String/Object   | 无 |
+
 #### Redirect/AppRedirect
+
+跳转组件。
 
 1. 子应用内跳转使用 Redirect
 2. 子应用间跳转使用 AppRedirect
