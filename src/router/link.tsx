@@ -1,6 +1,5 @@
 import React from 'react';
-import { getGotoHref, GetGotoHrefParams } from '@saasfe/we-app/lib/routing/locate';
-import { getRouteSwitchConfig, Route } from '@saasfe/we-app/lib/routing/route';
+import { getGotoHref, GetGotoHrefParams, getRouteSwitchConfig, Route } from '@saasfe/we-app';
 import { WeAppConsumer } from '../context';
 
 interface LinkElementProps extends GetGotoHrefParams {

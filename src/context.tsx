@@ -1,8 +1,6 @@
 import React, { createContext, cloneElement, isValidElement, useContext } from 'react';
-import { RenderCustomProps } from '@saasfe/we-app/lib/weapp/base';
-import { AppLocation } from '@saasfe/we-app/lib/routing/locate';
+import { RenderCustomProps, AppLocation, RouterType } from '@saasfe/we-app';
 import { useRoute, UseRouteParams } from './router/route';
-import { RouterType } from '.';
 
 // 缓存全局配置，如appBasename、routerType等
 export const SITE_CONFIG = {
