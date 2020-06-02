@@ -1,6 +1,6 @@
 import { useContext, useCallback } from 'react';
 import { getGotoHref } from '@saasfe/we-app/lib/routing/locate';
-import { Route, navigate } from '@saasfe/we-app/lib/routing/route';
+import { Route, navigate, RouteObj } from '@saasfe/we-app/lib/routing/route';
 import { WeAppContext, SITE_CONFIG } from '../context';
 
 export function useNavigate(isApp: boolean = false) {
@@ -40,7 +40,7 @@ export function AppRedirect(props: RedirectProps) {
   return null;
 }
 
-export type AppNavigateProps = string | { to: Route };
+export type AppNavigateProps = string | RouteObj | { to: string | RouteObj };
 
 export function appNavigate(props: AppNavigateProps) {
   const gotoHref = getGotoHref({
