@@ -33,7 +33,7 @@ function NavLinkElement(props: NavLinkElementProps) {
   return <a className={className} {...config} href={gotoHref}>{component}</a>;
 }
 
-export interface NavLinkProps {
+export interface NavLinkProps extends NavLinkElementProps {
   to: Route;
   route?: Route;
   children: any;
