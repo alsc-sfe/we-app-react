@@ -1,6 +1,6 @@
 {
   "name": "@saasfe/we-app-react",
-  "version": "1.0.4",
+  "version": "1.0.5-beta.0",
   "description": "We App React Context, React Router",
   "homepage": "https://github.com/alsc-sfe/we-app-react",
   "repository": {
@@ -31,7 +31,8 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "dependencies": {
-    "@saasfe/we-app": "^1.2.6",
+    "@saasfe/we-app-types": "beta",
+    "@saasfe/we-app-utils": "beta",
     "tslib": "1"
   },
   "devDependencies": {

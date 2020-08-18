@@ -1,5 +1,6 @@
 import { useContext, useCallback } from 'react';
-import { getGotoHref, Route, navigate, RouteObj } from '@saasfe/we-app';
+import { Route, RouteObj } from '@saasfe/we-app-types';
+import { getGotoHref, navigate } from '@saasfe/we-app-utils';
 import { WeAppContext, SITE_CONFIG } from '../context';
 
 export function useNavigate(isApp: boolean = false) {

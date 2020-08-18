@@ -1,5 +1,5 @@
 import React, { createContext, cloneElement, isValidElement, useContext } from 'react';
-import { RenderCustomProps, AppLocation, RouterType } from '@saasfe/we-app';
+import { RenderCustomProps, AppLocationInstance, RouterType } from '@saasfe/we-app-types';
 import { useRoute, UseRouteParams } from './router/route';
 
 // 缓存全局配置，如appBasename、routerType等
@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
 };
 
 export interface WeAppContextProps extends RenderCustomProps {
-  match?: AppLocation;
+  match?: AppLocationInstance;
   [prop: string]: any;
 }
 
