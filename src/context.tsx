@@ -1,4 +1,4 @@
-import React, { createContext, cloneElement, isValidElement, useContext } from 'react';
+import React, { createContext, cloneElement, isValidElement, useContext, ReactNode } from 'react';
 import { RenderCustomProps, AppLocationInstance, RouterType } from '@saasfe/we-app-types';
 import { useRoute, UseRouteParams } from './router/route';
 
@@ -14,7 +14,12 @@ export interface WeAppContextProps extends RenderCustomProps {
 }
 
 export interface WeAppProviderProps extends WeAppContextProps, UseRouteParams {
-  children: any;
+  // 产品路由前缀，如/crm
+  appBasename?: string;
+  // 产品路由拼接当前子应用路由前缀，如/crm/data
+  basename: string;
+  routerType: RouterType;
+  children: ReactNode;
   matchProps?: object;
 }
 

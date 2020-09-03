@@ -3,6 +3,10 @@ import { Route, RouteObj } from '@saasfe/we-app-types';
 import { getGotoHref, navigate } from '@saasfe/we-app-utils';
 import { WeAppContext, SITE_CONFIG } from '../context';
 
+/**
+ * hooks 获取跳转函数
+ * @param isApp 是否子应用间跳转
+ */
 export function useNavigate(isApp: boolean = false) {
   const context = useContext(WeAppContext);
 
@@ -42,6 +46,7 @@ export function AppRedirect(props: RedirectProps) {
 
 export type AppNavigateProps = string | RouteObj | { to: string | RouteObj };
 
+// 注意：在多子产品的场景会出现错误，请使用useNavigate
 export function appNavigate(props: AppNavigateProps) {
   const gotoHref = getGotoHref({
     to: typeof props === 'string' ? props : props.to || props,
