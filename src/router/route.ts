@@ -34,7 +34,7 @@ export function useRoute({
     basename,
     appBasename,
     routerType,
-  }), [currentRoute]); // eslint-disable-line
+  }), [currentRoute, exact, strict, route, routeIgnore, basename, appBasename, routerType]); // eslint-disable-line
 
   const matchLocate = parseLocate({
     route: routeRule,

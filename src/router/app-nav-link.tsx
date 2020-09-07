@@ -51,6 +51,7 @@ export default function AppNavLink(props: NavLinkProps) {
               {...routerConfig}
               {...props}
               route={props.route || props.to}
+              routeIgnore={props.routeIgnore}
               basename={routerConfig.appBasename}
             />
           );
