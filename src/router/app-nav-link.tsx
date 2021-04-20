@@ -5,13 +5,27 @@ import { WeAppConsumer, WeAppProviderProps } from '../context';
 
 interface NavLinkElementProps extends WeAppProviderProps {
   className?: string;
+  extProps?: any;
 }
 
 function NavLinkElement(props: NavLinkElementProps) {
-  const { to, route, exact, strict,
-    routeMatch, onRouteMatch, matchProps,
-    children, locate, routerType, basename, appBasename,
-    className, ...rest } = props;
+  const {
+    to,
+    route,
+    exact,
+    strict,
+    routeMatch,
+    onRouteMatch,
+    matchProps,
+    children,
+    locate,
+    routerType,
+    basename,
+    appBasename,
+    className,
+    extProps,
+    ...rest
+  } = props;
 
   const gotoHref = getGotoHref({
     to,
@@ -23,14 +37,20 @@ function NavLinkElement(props: NavLinkElementProps) {
 
   const [match, matchLocate] = useRoute(props);
 
-  const comProps = match ? {
-    ...rest,
-    ...matchProps,
-    match: matchLocate,
-  } : rest;
+  const comProps = match
+    ? {
+        ...rest,
+        ...matchProps,
+        match: matchLocate,
+      }
+    : rest;
   const component = isValidElement(children) ? cloneElement(children, comProps) : children;
 
-  return <a className={className} {...config} href={gotoHref}>{component}</a>;
+  return (
+    <a className={className} {...config} href={gotoHref} {...extProps}>
+      {component}
+    </a>
+  );
 }
 
 export interface NavLinkProps extends NavLinkElementProps {
@@ -43,18 +63,16 @@ export interface NavLinkProps extends NavLinkElementProps {
 export default function AppNavLink(props: NavLinkProps) {
   return (
     <WeAppConsumer>
-      {
-        (routerConfig) => {
-          return (
-            <NavLinkElement
-              {...routerConfig}
-              {...props}
-              route={props.route || props.to}
-              basename={routerConfig.appBasename}
-            />
-          );
-        }
-      }
+      {(routerConfig) => {
+        return (
+          <NavLinkElement
+            {...routerConfig}
+            {...props}
+            route={props.route || props.to}
+            basename={routerConfig.appBasename}
+          />
+        );
+      }}
     </WeAppConsumer>
   );
 }
