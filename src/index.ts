@@ -1,4 +1,5 @@
-import { RouterType, navigate } from '@saasfe/we-app';
+import { navigate } from '@saasfe/we-app-utils';
+import { RouterType } from '@saasfe/we-app-types';
 import AppNavLink from './router/app-nav-link';
 import { WeAppProvider, WeAppConsumer, WeAppContext } from './context';
 import { Link, AppLink } from './router/link';

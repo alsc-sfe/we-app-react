@@ -31,7 +31,8 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "dependencies": {
-    "@saasfe/we-app": "^1.2.6",
+    "@saasfe/we-app-types": "^1.0.0",
+    "@saasfe/we-app-utils": "^1.0.0",
     "tslib": "1"
   },
   "devDependencies": {

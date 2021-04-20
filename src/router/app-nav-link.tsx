@@ -1,6 +1,7 @@
 import React, { cloneElement, isValidElement } from 'react';
 import { useRoute } from './route';
-import { getGotoHref, getRouteSwitchConfig, Route } from '@saasfe/we-app';
+import { getGotoHref, getRouteSwitchConfig } from '@saasfe/we-app-utils';
+import { Route } from '@saasfe/we-app-types';
 import { WeAppConsumer, WeAppProviderProps } from '../context';
 
 interface NavLinkElementProps extends WeAppProviderProps {
@@ -45,7 +46,7 @@ function NavLinkElement(props: NavLinkElementProps) {
       }
     : rest;
   const component = isValidElement(children) ? cloneElement(children, comProps) : children;
-
+  // @ts-ignore
   return (
     <a className={className} {...config} href={gotoHref} {...extProps}>
       {component}
@@ -69,6 +70,7 @@ export default function AppNavLink(props: NavLinkProps) {
             {...routerConfig}
             {...props}
             route={props.route || props.to}
+            routeIgnore={props.routeIgnore}
             basename={routerConfig.appBasename}
           />
         );
