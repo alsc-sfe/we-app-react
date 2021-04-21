@@ -1,6 +1,6 @@
 {
   "name": "@saasfe/we-app-react",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "We App React Context, React Router",
   "homepage": "https://github.com/alsc-sfe/we-app-react",
   "repository": {
@@ -68,6 +68,7 @@
     "antd": ">=3.0.0"
   },
   "scripts": {
+    "sync-chixiao": "watch-sync-files start /Users/alexliu/projects/koubei/sourcecode/alsc-saas/web-boh-common",
     "lint": "npm run tslint && npm run stylelint",
     "tslint": "eslint ./src --ext '.ts,.tsx,.js,.jsx' --fix",
     "stylelint": "stylelint src/**/*.less --syntax less --fix"
