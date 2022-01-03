@@ -1,7 +1,8 @@
 import React from 'react';
-import { getGotoHref, getRouteSwitchConfig } from '@saasfe/we-app-utils';
+import { getRouteSwitchConfig } from '@saasfe/we-app-utils';
 import { GetGotoHrefParams, Route } from '@saasfe/we-app-types';
 import { WeAppConsumer } from '../context';
+import linkProps from './link-props';
 
 interface LinkElementProps extends GetGotoHrefParams {
   children: any;
@@ -18,16 +19,25 @@ function LinkElement({
   className,
   extProps,
 }: LinkElementProps) {
-  const gotoHref = getGotoHref({
+  alert(`ttttttt000: ${JSON.stringify({
+    to,
+    basename,
+    appBasename,
+    routerType,
+  }, null, '  ')}`);
+  const getLinkProps = linkProps({
     to,
     basename,
     appBasename,
     routerType,
   });
+
+  const gotoHref = getLinkProps.href;
   const config = getRouteSwitchConfig(gotoHref, routerType);
+
   // @ts-ignore
   return (
-    <a className={className} {...config} href={gotoHref} {...extProps}>
+    <a className={className} {...config} {...getLinkProps} {...extProps}>
       {children}
     </a>
   );
