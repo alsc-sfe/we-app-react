@@ -1,6 +1,3 @@
-lib
-es
-dist
 .travis.yml
 .sass-cache
 .DS_Store
@@ -11,3 +8,6 @@ npm-debug.log
 .history
 .tmp
 library
+lib
+es
+dist
