@@ -19,12 +19,6 @@ function LinkElement({
   className,
   extProps,
 }: LinkElementProps) {
-  alert(`ttttttt000: ${JSON.stringify({
-    to,
-    basename,
-    appBasename,
-    routerType,
-  }, null, '  ')}`);
   const getLinkProps = linkProps({
     to,
     basename,
