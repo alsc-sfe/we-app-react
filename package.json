@@ -1,6 +1,6 @@
 {
   "name": "@saasfe/we-app-react",
-  "version": "1.1.4",
+  "version": "1.1.4-beta.0",
   "description": "We App React Context, React Router",
   "homepage": "https://github.com/alsc-sfe/we-app-react",
   "repository": {
@@ -14,18 +14,8 @@
     "lib",
     "es",
     "library",
-    "_gitignore",
-    ".gitignore",
-    ".babelrc",
-    ".eslintignore",
-    ".eslintrc",
-    ".stylelintignore",
-    ".stylelintrc",
-    "abc.json",
-    "app.config.ts",
     "package.json",
-    "README.md",
-    "tsconfig.json"
+    "README.md"
   ],
   "license": "MIT",
   "main": "lib/index.js",
@@ -77,6 +67,6 @@
     "lint"
   ],
   "publishConfig": {
-    "registry": "https://registry.antfin-inc.com"
+    "registry": "https://registry.npmjs.org"
   }
 }
