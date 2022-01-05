@@ -62,7 +62,7 @@ export async function appNavigate(props: AppNavigateProps) {
     routerType: SITE_CONFIG.routerType,
   });
 
-  if ((to as any).refresh === true && (window as any).waitWeappUnloadApp) {
+  if ((props as any).refresh === true && (window as any).waitWeappUnloadApp) {
     await (window as any).waitWeappUnloadApp(gotoHref);
   }
 
