@@ -1,4 +1,4 @@
-import { useContext, useCallback, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { WeAppContext } from '../context';
 
 export function useLocation() {
@@ -8,12 +8,12 @@ export function useLocation() {
 
   useEffect(() => {
     setLoc({
-      pathname: context.basename,
+      pathname: context.pathname,
       match: context.match.params,
       query: context.match.query,
       routerType: context.routerType,
     });
-  }, [location.href, context]);
+  }, [context]);
 
   return loc;
 }
@@ -25,7 +25,7 @@ export function useParams() {
 
   useEffect(() => {
     setParams(context.match.params);
-  }, [location.href, context]);
+  }, [context]);
 
   return params;
 }
@@ -37,7 +37,7 @@ export function useQuery() {
 
   useEffect(() => {
     setQuery(context.match.query);
-  }, [location.href, context]);
+  }, [context]);
 
   return query;
 }
