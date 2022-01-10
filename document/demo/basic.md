@@ -9,6 +9,7 @@ title: 微应用路由
 import { WeAppProvider, 
   Link, useNavigate, appNavigate,
   AppLink, AppNavLink, navigate,
+  useLocation, useParams, useQuery,
   RouterType } from "@saasfe/we-app-react";
 
 function HelloAppNavLink({ style }) {
@@ -21,6 +22,10 @@ function Demo() {
   const navigateHook = useNavigate();
   const appNavigateHook = useNavigate(true);
 
+  const loc = useLocation();
+  const params = useParams();
+  const query = useQuery();
+
   return (
     <>
       <div><button onClick={navigateHook.bind(this, '/navigate-hook')}>weapp navigate by hook</button></div>
@@ -31,6 +36,11 @@ function Demo() {
       <div><Link to="~/link">Hello ~Link 等效于 AppLink /link</Link></div>
       <div><AppLink to="/app-link">Hello AppLink</AppLink></div>
       <div><AppNavLink to="/app-nav-link" matchProps={{ style: { background: 'red' } }}><HelloAppNavLink /></AppNavLink></div>
+
+      <div>Location</div>
+      <div>loc: {JSON.stringify(loc, null, '  ')}</div>
+      <div>params: {JSON.stringify(params, null, '  ')}</div>
+      <div>query: {JSON.stringify(query, null, '  ')}</div>
     </>
   );
 }
