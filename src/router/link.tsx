@@ -1,22 +1,40 @@
 import React from 'react';
-import { getGotoHref, GetGotoHrefParams, getRouteSwitchConfig, Route } from '@saasfe/we-app';
+import { getRouteSwitchConfig } from '@saasfe/we-app-utils';
+import { GetGotoHrefParams, Route } from '@saasfe/we-app-types';
 import { WeAppConsumer } from '../context';
+import linkProps from './link-props';
 
 interface LinkElementProps extends GetGotoHrefParams {
   children: any;
   className?: string;
+  extProps?: any;
 }
 
-function LinkElement({ to, basename, appBasename, routerType, children, className }: LinkElementProps) {
-  const gotoHref = getGotoHref({
+function LinkElement({
+  to,
+  basename,
+  appBasename,
+  routerType,
+  children,
+  className,
+  extProps,
+}: LinkElementProps) {
+  const getLinkProps = linkProps({
     to,
     basename,
     appBasename,
     routerType,
   });
+
+  const gotoHref = getLinkProps.href;
   const config = getRouteSwitchConfig(gotoHref, routerType);
 
-  return <a className={className} {...config} href={gotoHref}>{children}</a>;
+  // @ts-ignore
+  return (
+    <a className={className} {...config} {...getLinkProps} {...extProps}>
+      {children}
+    </a>
+  );
 }
 
 export interface LinkProps {
@@ -28,11 +46,9 @@ export interface LinkProps {
 export function Link(props: LinkProps) {
   return (
     <WeAppConsumer>
-      {
-        (routerConfig) => {
-          return <LinkElement {...props} {...routerConfig} />;
-        }
-      }
+      {(routerConfig) => {
+        return <LinkElement {...props} {...routerConfig} />;
+      }}
     </WeAppConsumer>
   );
 }
@@ -40,11 +56,9 @@ export function Link(props: LinkProps) {
 export function AppLink(props: LinkProps) {
   return (
     <WeAppConsumer>
-      {
-        (routerConfig) => {
-          return <LinkElement {...routerConfig} {...props} basename={routerConfig.appBasename} />;
-        }
-      }
+      {(routerConfig) => {
+        return <LinkElement {...routerConfig} {...props} basename={routerConfig.appBasename} />;
+      }}
     </WeAppConsumer>
   );
 }

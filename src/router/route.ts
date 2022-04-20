@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { parseLocate, Locate, AppLocation,
-  DEFAULTRouteMatch, RouteMatch, Route as TRoute, RouteMatchParams,
-  RouterType, isFunction } from '@saasfe/we-app';
+import { parseLocate, DEFAULTRouteMatch, isFunction } from '@saasfe/we-app-utils';
+import { Locate, AppLocationInstance, RouteMatch,
+  Route as TRoute, RouteMatchParams, RouterType } from '@saasfe/we-app-types';
 
 export interface UseRouteParams extends RouteMatchParams {
   to?: TRoute;
@@ -20,7 +20,7 @@ export function useRoute({
   basename = '',
   appBasename = '',
   routerType = RouterType.browser,
-}: UseRouteParams): [boolean, AppLocation] {
+}: UseRouteParams): [boolean, AppLocationInstance] {
   const [currentRoute, changeCurrentRoute] = useState(window.location.href);
   // 将当前访问的路径和当前指定的路径进行匹配，判断是否匹配
   const routeRule = route || to;
@@ -34,7 +34,7 @@ export function useRoute({
     basename,
     appBasename,
     routerType,
-  }), [currentRoute]); // eslint-disable-line
+  }), [currentRoute, exact, strict, route, routeIgnore, basename, appBasename, routerType]); // eslint-disable-line
 
   const matchLocate = parseLocate({
     route: routeRule,
