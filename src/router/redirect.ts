@@ -16,7 +16,7 @@ export function useNavigate(isApp: boolean = false) {
       return;
     }
 
-    const basename = context.useProduct ? `${context.appBasename}/${context.productName}` : context.appBasename
+    const basename = context.useProduct ? `${context.appBasename}/${context.productName}` : context.appBasename;
 
     const gotoHref = getGotoHref({
       ...context,
