@@ -21,6 +21,10 @@ export interface WeAppProviderProps extends WeAppContextProps, UseRouteParams {
   routerType: RouterType;
   children: ReactNode;
   matchProps?: object;
+  // 与productName 配套使用，用于开启多渠道投放时的开关，开启后会合并 productName 到路径上
+  useProduct?: boolean;
+  // 产品名，用于多渠道投放
+  productName?: string;
 }
 
 const WeAppContext = createContext<WeAppContextProps>(null);

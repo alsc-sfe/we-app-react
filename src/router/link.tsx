@@ -26,8 +26,11 @@ function LinkElement({
     routerType,
   });
 
+  console.log('tttttt getLinkProps111: ', getLinkProps);
+
   const gotoHref = getLinkProps.href;
   const config = getRouteSwitchConfig(gotoHref, routerType);
+  console.log('tttttt getLinkProps222: ', gotoHref, config, extProps);
 
   // @ts-ignore
   return (
@@ -43,6 +46,11 @@ export interface LinkProps {
   className?: string;
 }
 
+/**
+ * 子应用内跳转
+ * @param props
+ * @returns
+ */
 export function Link(props: LinkProps) {
   return (
     <WeAppConsumer>
@@ -53,11 +61,17 @@ export function Link(props: LinkProps) {
   );
 }
 
+/**
+ * 子应用与子应用之间跳转
+ * @param props
+ * @returns
+ */
 export function AppLink(props: LinkProps) {
   return (
     <WeAppConsumer>
       {(routerConfig) => {
-        return <LinkElement {...routerConfig} {...props} basename={routerConfig.appBasename} />;
+        const basename = routerConfig.useProduct ? `${routerConfig.appBasename}/${routerConfig.productName}` : routerConfig.appBasename;
+        return <LinkElement {...routerConfig} {...props} basename={basename} />;
       }}
     </WeAppConsumer>
   );
